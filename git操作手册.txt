@@ -1,3 +1,33 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @hellon
+
+1
+0
+
+    0
+
+hellon/springMvc
+Code
+Issues 0
+Pull requests 0
+Wiki
+Pulse
+Graphs
+Settings
+springMvc/git操作手册.txt
+852e6a4 12 minutes ago
+@hellon hellon 添加分支管理
+1 contributor
+executable file 130 lines (70 sloc) 4.38 KB
+学习网站:http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+
 git使用命令 
 
 一 .安装git 
@@ -73,6 +103,47 @@ git使用命令
 		      从现在起，只要本地作了提交，就可以通过命令：
 		     $ git push origin master   //把本地master分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！
 
+	3 :克隆远程仓库内容到本地
+		
+		$git clone git@github.com:hellon/springMvc.git
+
+
+四 分支管理
+	
+	1 我们创建dev分支，然后切换到dev分支：
+		$ git checkout -b dev
+		
+		解释：git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
+			$ git branch dev
+			$ git checkout dev
+
+	2 用git branch命令查看当前分支：
+		
+		$git branch
+		注释：git branch命令会列出所有分支，当前分支前面会标一个*号。
+
+	3 修改文件然后提到本地库最后推送到远程新的分支上去去
+		
+		$git add git操作手册.txt
+		$git commit -m "添加分支"
+		$git push origin dev //推送这次的提交的内容到新的分支
+
+
+	4 dev分支的工作完成，我们就可以切换回master分支：
+
+		 $git checkout master
+
+		 注释：切换回master分支后，再查看一个git操作手册.txt文件，刚才添加的内容不见了！因为那个提交是在dev分支上，而master分支此刻的提交点并没有变：
+
+
+	5 我们把dev分支的工作成果合并到master分支上：
+
+		git merge dev
+		
+
+		注释：git merge命令用于合并指定分支到当前分支。合并后，再查看readme.txt的内容，就可以看到，和dev分支的最新提交是完全一样的。
+
+		注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
 
 
 
@@ -95,14 +166,3 @@ git使用命令
 
 
 
-
-
-
-
-
-
-
-
-
-
-2 
