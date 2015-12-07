@@ -146,6 +146,16 @@ git使用命令
 		注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
 
 
+	6 合并完成后，就可以放心地删除dev分支了：
+
+		$ git branch -d dev
+		
+		删除后，查看branch，就只剩下master分支了：
+
+		$ git branch
+		* master
+
+
 
 
 
