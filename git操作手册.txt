@@ -1,0 +1,108 @@
+git使用命令 
+
+一 .安装git 
+
+	1  Ubuntu linux :sudo apt-get install git 
+   	2  centos linux: 先从Git官网下载源码，然后解压，依次输入：./config，make，sudo make install这几个命令安装就好了。
+	3   安装完成后，还需要最后一步设置，在命令行输入：
+		$ git config --global user.name "Your Name"
+		$ git config --global user.email "email@example.com"
+		note(注意):git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
+			      因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。
+
+
+二.创建版本库
+
+	1  创建一个版本库非常简单，首先，选择一个合适的地方，创建一个空目录：
+		$ mkdir learngit
+		$ cd learngit
+		$ pwd
+		/Users/michael/learngit
+	2  通过git init命令把这个目录变成Git可以管理的仓库：
+		$ git init
+		Initialized empty Git repository in /Users/michael/learngit/.git/
+	注 ： 瞬间Git就把仓库建好了，而且告诉你是一个空的仓库
+
+	3 把文件添加到版本库 
+		1）现在我们编写一个readme.txt文件
+		2）用命令git add告诉Git，把文件添加到仓库：
+			$git add readme.txt  或者 $git add 文件夹1,文件夹2 或者 $git add .(当前文件下的所有文件除去git忽略的) 
+			note（注意）:可以创建一个忽略的文件 .gitignore 内容可如下：		
+				# Eclipse project files
+				.project
+				.classpath
+				.settings
+				bin/
+				# Build targets (maven)
+				/target
+				*/target
+		3）用命令git commit告诉Git，把文件提交到仓库：
+			$ git commit -m "wrote a readme file"
+			git commit命令，-m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。
+		4）使用 "git rm --cached <文件>..." 撤出暂存区   git rm --cached -r  .
+
+	解释：为什么Git添加文件需要add，commit一共两步呢？因为commit可以一次提交很多文件，所以你可以多次add不同的文件，比如：
+
+三 远程仓库（使用gitHub库）
+	
+
+	1 使本地仓库和远程库建立关联 使用命令：
+
+		$git remote add origin git@github.com:hellon/springMvc.git
+
+		note:添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
+	2 把本地库的所有内容推送到远程库上：
+		
+		$git push -u origin master
+
+		注意：在gitHub上创建新的仓库后如果写了readme.md文件,直接执行push操作会报错 
+			error: 无法推送一些引用到 'git@github.com:hellon/springMvc.git'
+			提示：更新被拒绝，因为您当前分支的最新提交落后于其对应的远程分支。
+			提示：再次推送前，先与远程变更合并（如 'git pull ...'）。详见
+			提示：'git push --help' 中的 'Note about fast-forwards' 小节。
+		      解决方案：本地已存在项目,需要先获取远端更新并与本地合并,再git push
+			具体操作如下:
+			$git fetch origin    //获取远程更新
+			$git merge origin/master //把更新的内容合并到本地分支
+			$git push -u origin master
+
+
+		注解：由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，
+		      还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+
+		      从现在起，只要本地作了提交，就可以通过命令：
+		     $ git push origin master   //把本地master分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2 
