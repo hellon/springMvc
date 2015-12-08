@@ -4,4 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+	<typeAliases>
+	  <typeAlias alias="Sysfunction" type="com.liu.test.domain.Sysfunction"/>
+	</typeAliases>
 </configuration>

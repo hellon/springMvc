@@ -1,10 +1,13 @@
-package com.jovision.domain;
+package com.liu.test.domain;
 
 import java.sql.Timestamp;
+
+import org.apache.ibatis.type.Alias;
 
 /**
  * Sysfunction entity. @author MyEclipse Persistence Tools
  */
+
 
 public class Sysfunction implements java.io.Serializable {
 
