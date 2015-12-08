@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HelloWorldController {
+public class HelloWorldController { 
 
     @RequestMapping(path="/helloword",method=RequestMethod.GET)//多个参数 
     public String helloWorld(@RequestParam Map<String,String> map,Model model) {//获取参数方式 一
