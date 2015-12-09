@@ -9,13 +9,4 @@ import com.liu.test.domain.Sysfunction;
 
 @Repository("functionDao")
 public class FunctionDao extends TTDao {
-	
-	@Resource(name="sqlSession")
-	private SqlSession sqlSession;
-	
-	
-	public Sysfunction getFunction(String id){
-		Object obj = sqlSession.selectOne(Sysfunction.class.getName()+".selectSysfunctionById", id);
-		return (Sysfunction) obj;
-	}
 }

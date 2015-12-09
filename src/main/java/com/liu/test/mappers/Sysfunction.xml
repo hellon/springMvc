@@ -15,7 +15,12 @@
   	<result column="used" property="used" jdbcType="INTEGER"/>
   </resultMap>
 
-  <select id="selectSysfunctionById" resultMap="Sysfunction">
+  <select id="getObjById" resultMap="Sysfunction">
     select * from sysfunction where id = #{id}
   </select>
+  
+  <select id="getObjList" resultMap="Sysfunction">
+    select * from sysfunction
+  </select>
+  
 </mapper>
