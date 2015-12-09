@@ -6,6 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>hello word ${message }
+<body>hello word ${message } -------> ${function.functionName } --->${function.addTime }
 </body>
 </html>

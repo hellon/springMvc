@@ -15,6 +15,7 @@ public class FunctionDao extends TTDao {
 	
 	
 	public Sysfunction getFunction(String id){
-		return sqlSession.selectOne(Sysfunction.class.getName()+".selectSysfunctionById", id);
+		Object obj = sqlSession.selectOne(Sysfunction.class.getName()+".selectSysfunctionById", id);
+		return (Sysfunction) obj;
 	}
 }

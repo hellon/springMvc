@@ -22,7 +22,7 @@ public class HelloWorldController {
 	@Resource(name="functionDao")
 	private FunctionDao functionDao;
 	
-    @RequestMapping(path="/helloword",method=RequestMethod.GET)// 
+    @RequestMapping(path="/helloword.do",method=RequestMethod.GET)// 
     public String helloWorld(@RequestParam Map<String,String> map,Model model) {//鑾峰彇鍙傛暟鏂瑰紡 涓�
     	System.out.println(map.get("id")+":::::");
     	System.out.println(map.get("name")+":::::");
